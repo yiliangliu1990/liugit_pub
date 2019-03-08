@@ -1,5 +1,5 @@
 %{
-Copyright (c) 2016, Yiliang Liu 
+Copyright (c) 2017, Yiliang Liu 
 Department of Electronics Information Engineering, Harbin Institute of Technology, China
 All rights reserved.
 
