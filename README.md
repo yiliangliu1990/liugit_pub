@@ -7,3 +7,5 @@ Author: Yiliang Liu (liuyiliang@hit.edu.cn), Department of Electronics Informati
 ---- Secrecy Capacity Analysis of Artificial Noisy MIMO Channels—An Approach Based on Ordered Eigenvalues of Wishart Matrices
 2) Correlated Wishart matrix and secrecy rates
 ---- Artificial Noisy MIMO Systems under Correlated Scattering Rayleigh Fading -- A Physical Layer Security Approach
+
+* Note that only secrecy rate codes of Monte Carlo simulations and theoretical tests are shown. The details of secrecy rate expressions are explained in corresponding papers.
