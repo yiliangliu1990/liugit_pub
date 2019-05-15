@@ -5,7 +5,7 @@ All rights reserved.
 
 The k-th largest eigenvalue distribution (cdf and pdf) of the semi-correlated (receive side) central Whishart matrix.
 
-This code is used to provide the cdf and pdf in [2].
+This code is used to provide the cdf and pdf in [1].
 
 [1] Secrecy Capacity Analysis of Artificial Noisy MIMO Channels with Rayleigh Receive Correlation
 - an Approach Based on Ordered Eigenvalues of Wishart Matrices.
