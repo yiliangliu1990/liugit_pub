@@ -9,3 +9,6 @@ Author: Yiliang Liu (liuyiliang@hit.edu.cn), Department of Electronics Informati
   ---- Artificial Noisy MIMO Systems under Correlated Scattering Rayleigh Fading -- A Physical Layer Security Approach
 
   * Note that only secrecy rate codes of Monte Carlo simulations and theoretical tests are shown. The details of secrecy rate expressions   are explained in corresponding papers.
+
+## 2. sim_test
+Some simcodes for tests.
