@@ -29,8 +29,8 @@ average_Rs = zeros(10,1); % average secrecy rate
 theoretical_Rs = zeros(10,1); % theoretical ergodic secrecy rate
 
 %% generate channels
-H_me = sqrt(1/2) * (randn(Ne,Nm,nsample) + j * randn(Ne,Nm,nsample));
-h_mv =  sqrt(1/2) * (randn(1,Nm,nsample) + j * randn(1,Nm,nsample));
+H_me = sqrt(1/2) * (randn(Ne,Nm,nsample) + 1i * randn(Ne,Nm,nsample));
+h_mv =  sqrt(1/2) * (randn(1,Nm,nsample) + 1i * randn(1,Nm,nsample));
 
 %% begin simulation
 for n = 1:1:10
