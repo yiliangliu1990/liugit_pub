@@ -33,9 +33,9 @@ close all;
 
 %% System parameter setting
 syms x l k;
-nsample = 1e+05;
+nsample = 1e+04;
 s = 2;
-snr = 1;
+snr = 1:1:10;
 secrecy_rate_monte = zeros(1,length(snr));
 secrecy_rate_numerical = zeros(1,length(snr));
 sc = zeros(nsample,1);
@@ -74,7 +74,7 @@ number = 0; % Counting C_w>C_m
 %% Simulation begin
 for snr = 1:1:length(snr)
     for i = 1:1:nsample
-        P = 10.^(snr/10.); % Transmit power
+        P = 10.^(2*snr/10.); % Transmit power
         Hc = R^(1/2)*Hm(:,:,i);
         [u, d, v] = svd(Hc'*Hc); % SVD of main channel
         B = u(:,1:s); % Information precoding
@@ -95,5 +95,5 @@ for snr = 1:1:length(snr)
         end
     end
     secrecy_rate_monte(snr) = mean( sc_real);
-    secrecy_rate_numerical(snr) = main_capacity(Nr,Nt,s,P)+AN_rate(Ne,Nt,s,P)-eve_capacity(Ne,Nt,P);
+    %secrecy_rate_numerical(snr) = main_capacity(Nr,Nt,s,P)+AN_rate(Ne,Nt,s,P)-eve_capacity(Ne,Nt,P);
 end
