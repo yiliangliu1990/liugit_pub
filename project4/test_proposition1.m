@@ -14,7 +14,7 @@ clc
 clear
 close all
 
-syms  k m
+syms  k n
 nsample  = 1e5;
 Pm = 1;
 Pv = 1;
@@ -50,7 +50,7 @@ for index = 1:length(x)
 end
 
 for i = 1:length(Ru)
-    ccdf_theo(i) = exp(-x(i)/(Pm/sigma_ve))*symsum((symsum((factorial(Nm-1)/(factorial(k)*factorial(Nm-1-k)))*x(i)^k,k,0,Ne-m-1)/(1+x(i))^(Nm-1))/(factorial(m))*(x(i)/(Pm/sigma_ve))^m,m,0,Ne-1);
+    ccdf_theo(i) = exp(-x(i)/(Pm/sigma_ve))*symsum((symsum((factorial(Nm-1)/(factorial(n)*factorial(Nm-1-n)))*x(i)^n,n,0,Ne-k-1)/(1+x(i))^(Nm-1))/(factorial(k))*(x(i)/(Pm/sigma_ve))^k,k,0,Ne-1);
 end
 
 %% plot figure
