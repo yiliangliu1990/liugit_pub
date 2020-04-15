@@ -33,7 +33,7 @@ m = max(Nr,Nt);
 n = min(Nr,Nt);
 
 s = zeros(n+1,1); % counting the number of different Theta matrices (see [1] Theta matrix definition)
-Theta = sym(zeros(Nr,Nr,2^n-1)); % 2^n-1 Theta matrices
+Theta = sym(zeros(n,n,2^n-1)); % 2^n-1 Theta matrices
 l = perms(1:1:n);
 deter = sym(zeros(1,n));
 
