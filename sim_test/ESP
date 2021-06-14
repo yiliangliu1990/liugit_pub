@@ -1,0 +1,38 @@
+clear all;
+close all;
+%误码率曲线的绘制
+SNR=1:1:20;%信噪比变化范围
+snr=10.^(SNR/10);%将信噪比转化成直角坐标
+N=1000000;%仿真点数
+M=2;%进制数
+x=randi([0,1],1,N); %产生随机信号
+y=pskmod(x,M);%调用matlab自带的psk调制函数
+ 
+for i=1:length(SNR);
+    N0=1/2/snr(i);%计算噪声功率
+    N0_dB=10*log10(N0);%将噪声功率转换为dBW
+    ni=wgn(1,N,N0_dB);%产生高斯噪声
+    h=raylrnd(1/sqrt(2),1,N);%产生瑞利信号
+ 
+    yAn=y+ni;%通过高斯信道
+    yA=pskdemod(yAn,M);%调用matlab自带的psk解调函数
+    bit_A=length(find(x~=yA));%统计错误比特数 
+    BPSK_s_AWGN(i)=bit_A/N;%计算误码率
+    
+    yRn=y.*h+ni;%通过瑞利信道
+    yR=pskdemod(yRn,M);%调用matlab自带的psk解调函数
+    bit_R=length(find(x~=yR));%统计错误比特数
+    BPSK_s_Ray(i)=bit_R/N;%计算误码率 
+end
+BPSK_t_AWGN=1/2*erfc(sqrt(10.^(0.1.*SNR)));%AWGN信道下BPSK理论误码率
+BPSK_t_Ray=1/2*(1-sqrt((snr)./(1+snr)));%Rayleigh信道下BPSK理论误码率
+%绘制图形
+figure;
+semilogy(SNR,BPSK_s_AWGN,'-k*');hold on;
+semilogy(SNR,BPSK_t_AWGN,'-go');hold on;
+semilogy(SNR,BPSK_s_Ray,'-b*');hold on
+semilogy(SNR,BPSK_t_Ray,'-ro');grid on;
+axis([-1,20,10^-5,1]);
+legend('AWGN仿真','AWGN理论','瑞利仿真','瑞利理论');
+title('BPSK误码性能分析');
+xlabel('SNR（dB）');ylabel('BER');
