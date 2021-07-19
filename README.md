@@ -12,3 +12,6 @@ Author: Yiliang Liu (liuyiliang@hit.edu.cn), Department of Electronics Informati
 
 ## 2. sim_test
 Some simcodes for tests.
+
+## 3. IRS simulations
+Some simcodes for IRS-PLS.
